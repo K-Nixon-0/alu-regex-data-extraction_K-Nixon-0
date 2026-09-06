@@ -1,0 +1,13 @@
+Welcome to the ALU Regex Hackathon test file!
+
+If you need help, email official staff at contact@alueducation.com or alumni support at info@alumni.alueducation.com.
+SI students can email student123@si.alueducation.com, or reach personal accounts like myemail@gmail.com.
+
+Check project info at https://www.alueducation.com or visit http://github.com/alu for updates.
+
+To register, pay $150.00 or $1,200.50 using card 4532-1234-5678-9012 or 1234 5678 9101 1121.
+Call support at +250 788 123 456 or 555-123-4567.
+
+The meeting is set for 08:30 AM and ends at 16:45.
+
+Security attack test: <script>alert("hack attempt")</script> <h1>Test</h1>
