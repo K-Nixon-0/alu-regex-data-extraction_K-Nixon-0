@@ -26,3 +26,35 @@ def hide_card_digits(card_number):
         return "****-****-****-" + only_numbers[-4:]
     return "****"
 
+# Function to find all datatpes in raw-text.txt
+def find_all_data(text):
+    found_cards = re.findall(card_type, text)
+    found_phones = re.findall(phone_type, text)
+    found_urls = re.findall(url_type, text)
+    found_times = re.findall(time_type, text)
+    found_money = re.findall(money_type, text)
+    all_emails = re.findall(all_email_type, text)
+    alu_official = re.findall(alu_official_type, text)
+    alu_alumni = re.findall(alu_alumni_type, text)
+    alu_si = re.findall(alu_si_type, text)
+
+    safe_cards = []
+    for card in found_cards:
+        safe_cards.append(hide_card_digits(card))
+
+    result_data = {
+        "emails": {
+            "all_extracted": [html.escape(e) for e in set(all_emails)],
+            "alu_official": [html.escape(e) for e in set(alu_official)],
+            "alu_alumni": [html.escape(e) for e in set(alu_alumni)],
+            "alu_si": [html.escape(e) for e in set(alu_si)],
+        },
+        "urls": [html.escape(u) for u in set(found_urls)],
+        "credit_cards": safe_cards,
+        "phone_numbers": [html.escape(p) for p in set(found_phones)],
+        "time_formats": [html.escape(t) for t in set(found_times)],
+        "currency_amounts": [html.escape(m) for m in set(found_money)],
+    }
+
+    return result_data
+
