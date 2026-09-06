@@ -92,5 +92,5 @@ def start_program():
     print("----------------------------------------------------------------")
     print("Done! Output saved to output/sample-output.json")
 
-    if __name__ == "__main__":
+if __name__ == "__main__":
     start_program()
