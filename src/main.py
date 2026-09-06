@@ -58,3 +58,36 @@ def find_all_data(text):
 
     return result_data
 
+def start_program():
+
+    current_folder = os.path.dirname(os.path.abspath(__file__))
+    project_folder = os.path.abspath(os.path.join(current_folder, ".."))
+
+    # Looks for raw-text.txt file in input
+    file_path = os.path.join(project_folder, "input", "raw-text.txt")
+    if not os.path.exists(file_path):
+        file_path = os.path.join(project_folder, "raw-text.txt")
+
+    output_path = os.path.join(project_folder, "output", "sample-output.json")
+
+    # Read raw-text.txt file
+    try:
+        with open(file_path, "r", encoding="utf-8") as f:
+            my_text = f.read()
+    except FileNotFoundError:
+        print("----------------------------------------------------------------")
+        print("Error: Could not find raw-text.txt file!")
+        return
+
+    # Extract data
+    extracted_results = find_all_data(my_text)
+
+    # Make output folder if it doesnot exist
+    os.makedirs(os.path.dirname(output_path), exist_ok=True)
+
+    # Save to output json file
+    with open(output_path, "w", encoding="utf-8") as f:
+        json.dump(extracted_results, f, indent=4)
+    
+    print("----------------------------------------------------------------")
+    print("Done! Output saved to output/sample-output.json")
