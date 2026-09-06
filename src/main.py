@@ -1,7 +1,7 @@
 import html
 import json
 import os
-import re #First time use (Import re) but it stands for regular expressions
+import re #First time use (Import re) but it stands for "regular expressions"
 
 
 # Different ALU emails datatypes
@@ -18,3 +18,11 @@ phone_type = r"\b(?:\+?\d{1,3}[-.\s]?)?\(?\d{3}\)?[-.\s]?\d{3}[-.\s]?\d{4}\b"
 url_type = r"https?://[^\s<>\"]+|www\.[^\s<>\"]+"
 time_type = r"\b(?:[01]?\d|2[0-3]):[0-5]\d(?:\s?[APap][Mm])?\b"
 money_type = r"\$?\b\d{1,3}(?:,\d{3})*(?:\.\d{2})?\b"
+
+# Hiding the last 4 digits of a credit card number for security purposes
+def hide_card_digits(card_number):
+    only_numbers = re.sub(r"\D", "", card_number)
+    if len(only_numbers) >= 13:
+        return "****-****-****-" + only_numbers[-4:]
+    return "****"
+
