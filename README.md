@@ -14,4 +14,5 @@ alu-regex-data-extraction_K-Nixon-0/
 │   └── sample-output.json
 └── README.md
 
+```
 <img width="769" height="277" alt="image" src="https://github.com/user-attachments/assets/9a0fc746-e2fc-4b19-843b-655ec64547e8" />
